@@ -33,17 +33,20 @@ public class Room {
     public void setTemperature(double temperature) {
         this.temperature = temperature;
     }
+
     boolean testTemperaturyRoom() {
         final int TEMP_MIN = 15;
         final int wzkazniTemp = 6;
-
         //--room.temperature;                   Wersja 1
-        temperature -= (wzkazniTemp/size) ;  /* Wersja rozszerzona */
 
-        if (temperature < TEMP_MIN || !airConditioner ) {
-            if (temperature< TEMP_MIN) {temperature = TEMP_MIN;};
-            return false;
+        if (airConditioner) {
+            temperature -= (wzkazniTemp / size);
+            if (temperature < TEMP_MIN) {
+                temperature = TEMP_MIN;
+                return false;
+            }
+            return true;
         }
-        return true;
+        return false;
     }
 }

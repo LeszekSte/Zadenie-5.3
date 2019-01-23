@@ -20,7 +20,7 @@ public class Main {
             double tempWPokoju = sc.nextDouble();
             sc.nextLine();
             sc.close();
-            Room room = new Room(powRoom, tempWPokoju, true);
+            Room room = new Room(powRoom, tempWPokoju, false);
 
             System.out.println("Temperatura początkowa - " + room.getTemperature());
             System.out.println("Czy obniżono temp lub czy jest klima ? - " + room.testTemperaturyRoom());
