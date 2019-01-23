@@ -13,7 +13,6 @@ public class Room {
     public Room() {
     }
 
-    ;
 
     public boolean isAirConditioner() {
         return airConditioner;
@@ -42,8 +41,12 @@ public class Room {
 
     boolean testTemperaturyRoom(Room room) {
         final int TEMP_MIN = 15;
+        final int wzkazniTemp = 6;
+
         boolean testTemperatury = true;
-        --room.temperature;
+        //--room.temperature;                           Wersja 1
+        room.temperature -= (wzkazniTemp/room.size) ;  /* Wersja rozszerzona */
+
         if (room.temperature < TEMP_MIN) {
             room.temperature = TEMP_MIN;
             testTemperatury = false;
