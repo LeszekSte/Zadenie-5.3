@@ -10,10 +10,6 @@ public class Room {
         this.airConditioner = airConditioner;
     }
 
-    public Room() {
-    }
-
-
     public boolean isAirConditioner() {
         return airConditioner;
     }
@@ -37,24 +33,17 @@ public class Room {
     public void setTemperature(double temperature) {
         this.temperature = temperature;
     }
-
-
-    boolean testTemperaturyRoom(Room room) {
+    boolean testTemperaturyRoom() {
         final int TEMP_MIN = 15;
         final int wzkazniTemp = 6;
 
-        boolean testTemperatury = true;
-        //--room.temperature;                           Wersja 1
-        room.temperature -= (wzkazniTemp/room.size) ;  /* Wersja rozszerzona */
+        //--room.temperature;                   Wersja 1
+        temperature -= (wzkazniTemp/size) ;  /* Wersja rozszerzona */
 
-        if (room.temperature < TEMP_MIN) {
-            room.temperature = TEMP_MIN;
-            testTemperatury = false;
+        if (temperature < TEMP_MIN || !airConditioner ) {
+            if (temperature< TEMP_MIN) {temperature = TEMP_MIN;};
+            return false;
         }
-        if (!room.airConditioner) {
-            testTemperatury = false;
-        }
-        return testTemperatury;
+        return true;
     }
-
 }
